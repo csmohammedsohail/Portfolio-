@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <title>Portfolio</title>
+    <style>
+      /* .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+      } */
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+        filter: brightness(1.2);
+        animation: pulsate 2s infinite ease-in-out;
+        z-index: 2; /* Updated z-index value */
+      }
+
+      .detail {
+        position: relative;
+        z-index: 1; /* Updated z-index value */
+      }
+
+      @keyframes pulsate {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 10px rgba(0, 162, 255, 0.7);
+        }
+        50% {
+          transform: scale(1.1);
+          box-shadow: 0 0 20px rgba(0, 174, 255, 0.9);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 10px rgba(0, 183, 255, 0.7);
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        max-height: 100vh;
+        background-color: #060a10;
+        overflow-x: hidden;
+      }
+
+      header {
+        padding: 1.7rem 1rem;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        max-width: 80%;
+        margin: auto;
+        align-items: center;
+        position: relative;
+        z-index: 99;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #fff;
+      }
+
+      .logo a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.97rem;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+        padding: 1rem;
+        padding: 0.4rem 1rem;
+      }
+
+      nav a.active,
+      nav a:hover {
+        color: #00e8f8;
+        border-radius: 1rem;
+        transition: all 0.3s ease-in-out;
+      }
+
+      #click {
+        display: none;
+      }
+
+      .menu i {
+        color: #00e8f8;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      section {
+        margin: 2rem 8.5rem;
+      }
+
+      .main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5rem auto;
+      }
+
+      .main h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #fff;
+        animation: slide-up 1s ease-in both;
+      }
+
+      .main p {
+        margin-top: 1rem;
+        font-size: 0.98rem;
+        color: #fff;
+      }
+
+      .social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4rem;
+        margin-top: 1.7rem;
+      }
+
+      .social a {
+        color: #00e8f8;
+        font-size: 1rem;
+        border: 1.6px solid #00e8f8;
+        border-radius: 50%;
+        padding: 0.35rem;
+        text-align: center;
+        width: 26px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .social a:hover {
+        color: #1f252e;
+        background-color: #00e8f8;
+        box-shadow: 0 0 20px #00e8f8;
+      }
+
+      .main h1 span:nth-child(1) {
+        font-size: 1.5rem;
+      }
+
+      .main h1 span:nth-child(2) {
+        color: #00e8f8;
+      }
+
+      @keyframes slide-up {
+        0% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .images {
+        position: relative;
+        width: 528px;
+        height: 320px;
+      }
+
+      .images img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .images::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(/img/graph5.png);
+        background-repeat: no-repeat;
+        background-position: 0 -75px;
+        box-shadow: 0 10px 10px -10px #000000;
+        opacity: 0.9;
+        z-index: -1;
+        animation: slide-in 1s ease-in-out both;
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateX(-200px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 0.9;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .menu {
+          display: block;
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #244d61;
+        }
+
+        header {
+          padding: 0.7rem 1rem;
+          align-items: center;
+          max-width: 100%;
+        }
+
+        nav {
+          position: absolute;
+          display: grid;
+          top: 75px;
+          text-align: center;
+          background-color: #1f252e;
+          left: -100%;
+          z-index: 1;
+          width: 100%;
+        }
+
+        #click:checked ~ nav {
+          left: 0%;
+          transition: all 0.3s ease;
+        }
+
+        section {
+          margin: 1rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="#">cs sohail.BIO</a>
+      </div>
+      <input type="checkbox" id="click" />
+      <label for="click" class="mainicon">
+        <div class="menu">
+          <i class="bi bi-list"></i>
+        </div>
+      </label>
+      <nav>
+        <a href="pro.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">services</a>
+        <a href="portfolio.html">portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section>
+      <div class="main">
+        <div class="main">
+          <div class="detail">
+            <!-- existing code -->
+          </div>
+          <div class="images">
+            <img src="1.jpg" alt="" class="profile-image" />
+          </div>
+        </div>
+        <div class="detail">
+          <h1>
+            <span>Hi, It's Me</span> <br />
+            I'm <span style="color: #00bef8">chennur shaik mohammed sohail</span>
+          </h1>
+          <p>
+            Computer Science and Engineering student with a passion for
+            problem-solving.
+          </p>
+          <p>
+            Skilled in Python, Java, and C++, with experience in software
+            development and data structures.
+          </p>
+          <p>
+            Open to collaboration on exciting projects. Explore my portfolio and
+            let's connect!
+          </p>
+          <div class="social">
+            <a href="https://github.com/csmohammedsohail">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="#">
+              <i class="bi bi-google"></i>
+            </a>
+            <a href="https://instagram.com/_sonu_sohail_?igshid=MzNlNGNkZWQ4Mg==">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/shaik-sohail-8a58b8205">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/shaiksohail.shaiksohail.395?mibextid=ZbWKwL">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="images">
+          <img src="/img/pass.png" alt="" />
+        </div> -->
+      </div>
+    </section>
+    <section></section>
+  </body>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+  </style>
+
+  <!-- <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+  </style> -->
+</html>
